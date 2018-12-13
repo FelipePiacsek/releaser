@@ -1,0 +1,26 @@
+Copy the content below and paste on your GitHub release.
+
+Note that only merged Pull Requests will appear on the body.
+
+--
+
+Suggested tag: `%{tag}`
+
+Suggested PR title: `Release Notes %{title}`
+
+```
+## Changes on this release:
+
+%{changes}
+
+%{before_deploying_tasks}
+%{after_deploying_tasks}
+## Contributors on this release:
+
+Thanks a lot for your contributions:
+
+Author's Name | Author's Email
+------------- | --------------
+%{contributors}
+
+```
