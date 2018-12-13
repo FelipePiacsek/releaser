@@ -1,5 +1,5 @@
-require "releaser/version"
+require 'releaser/version'
 
 module Releaser
-  # Your code goes here...
+  require 'releaser/commands'
 end
