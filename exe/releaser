@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "releaser"
+RkpAgent::Commands.start(ARGV)
