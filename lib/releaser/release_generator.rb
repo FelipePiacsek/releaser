@@ -53,7 +53,7 @@ class ReleaseGenerator
                  after_deploying_tasks: after_deploying_text,
                  tag: formatted_time,
                  title: formatted_time,
-    }
+               }
   end
 
   def build_deploy_text(tasks, phase)
@@ -76,7 +76,7 @@ class ReleaseGenerator
     if !before_deploy_marker.nil? && !after_deploy_marker.nil?
       before_deploy_text = raw_message[/#{Regexp.escape(before_deploy_marker)}(.*?)#{Regexp.escape(after_deploy_marker)}/m, 1]
     elsif !before_deploy_marker.nil?
-      before_deploy_text = raw_message.slice(raw_message.index(before_deploy_marker) + 1, raw_message.index)
+      before_deploy_text = raw_message.slice(raw_message.index(before_deploy_marker) + 1, raw_message.index) # FIXME: Pass arguments to `raw_message.index` method call
     end
 
     unless after_deploy_marker.nil?
