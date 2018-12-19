@@ -4,7 +4,8 @@ class ReleaserModel
   end
 
   def method_missing(method, *)
-    @attributes.fetch(method) { super }
+    value = @attributes.fetch(method) { super }
+    value.is_a?(Hash) ? ReleaserModel.new(value) : value
   end
 
   def respond_to_missing?(method, _include_all)
