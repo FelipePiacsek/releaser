@@ -3,3 +3,4 @@ require 'releaser'
 
 require 'minitest/autorun'
 require_relative 'declarative_testing'
+Minitest::Test.make_my_diffs_pretty!
