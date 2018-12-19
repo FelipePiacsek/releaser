@@ -1,8 +1,7 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/releaser/models/releaser_model'
 
-class ReleaserModelTest < Minitest::Test
-  EXPECTED_METHOD_RETURN_VALUE = 'This should be returned.'.freeze
+class ReleaserModelTest < BaseReleaserTest
 
   def setup
     attrs_hash = {

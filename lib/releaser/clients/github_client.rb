@@ -3,8 +3,6 @@
 # By default, it will use Octokit as the client.
 # For more info on Octokit, please check this: https://github.com/octokit/octokit.rb
 class GithubClient
-  # In order to scale and make Bitbucket integration easier, Encoders/Decoders
-  # should be taken into consideration in order to standardize the data
   DEFAULT_PAGINATION_AMOUNT = 100
 
   def initialize

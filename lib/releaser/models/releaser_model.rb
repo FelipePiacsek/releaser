@@ -1,3 +1,6 @@
+## This class is the base class for all releaser models.
+# It receives a hash as initialization argument and make its content available
+# via . or [] method calls.
 class ReleaserModel
   def initialize(attrs_hash)
     @attributes = attrs_hash
