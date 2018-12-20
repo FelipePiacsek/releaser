@@ -2,11 +2,14 @@
 # This class encapsulates the communication with Github API.
 # By default, it will use Octokit as the client.
 # For more info on Octokit, please check this: https://github.com/octokit/octokit.rb
+
+require_relative '../../../lib/releaser/models/pull_request'
 class GithubClient
   DEFAULT_PAGINATION_AMOUNT = 100
 
   def initialize
     @client = github_api_client
+    @users_cache = {}
   end
 
   def available_repositories
@@ -18,10 +21,20 @@ class GithubClient
     @client.pull_requests(repository_id, options)
   end
 
+  def user(user_id)
+    if @users_cache.key?(user_id)
+      @users_cache[user_id]
+    else
+      @users_cache[user_id] = @client.user user_id
+    end
+  end
+
   def unreleased_pull_requests(repository_id)
-    last_release_sha = @client.last_release_sha repository_id
+    last_release_sha = last_release_sha repository_id
     last_prs = pull_requests(repository_id, state: :closed)
-    last_prs.take_while { |pr| pr.merge_commit_sha != last_release_sha }
+    unreleased = last_prs.take_while { |pr| pr.merge_commit_sha != last_release_sha }
+
+    decode_pull_requests unreleased
   end
 
   protected
@@ -36,6 +49,14 @@ class GithubClient
   def last_release_sha(repository_id)
     tags = @client.tags repository_id
     tags.empty? ? nil : tags.first.commit.sha
+  end
+
+  def decode_pull_requests(pull_requests)
+    pull_requests.map do |pr|
+      pr_attrs = pr.to_h
+      contributor_attrs = user(pr.user.id).to_h
+      PullRequest.new(pr_attrs, contributor_attrs)
+    end
   end
 
 end

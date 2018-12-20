@@ -18,4 +18,8 @@ class ReleaserModel
   def [](key)
     @attributes.fetch(key.to_sym)
   end
+
+  def to_json
+    @attributes.to_json
+  end
 end
