@@ -25,15 +25,34 @@ class GithubClientTest < BaseReleaserTest
     end
   end
 
+  test 'should return an User model when #user method is called for a given user_id' do
+    user_id = FELIPE_PIACSEK_GITHUB_ID
+    expected_user = build_expected_user user_id
+    actual_user = @mocked_client.user user_id
+
+    assert actual_user.is_a?(User)
+    assert_equal expected_user[:id], actual_user.id
+    assert_equal expected_user[:name], actual_user.name
+    assert_equal expected_user[:email], actual_user.email
+    assert_equal expected_user[:login], actual_user.login
+  end
+
   def build_expected_pull_requests(scenario_path)
     pr_file_content = fixture_file(scenario_path).read
     expected_prs = JSON.parse(pr_file_content, symbolize_names: true)
 
     expected_prs.each do |pr|
-      user_string = fixture_file("users/#{pr[:user][:id]}.json").read
+      user_file_path = github_user_fixture_path "#{pr[:user][:id]}.json"
+      user_string = fixture_file(user_file_path).read
       pr[:user] = JSON.parse(user_string, symbolize_names: true)
     end
 
     expected_prs
+  end
+
+  def build_expected_user(user_id)
+    user_file_path = github_user_fixture_path "#{user_id}.json"
+    user_string = fixture_file(user_file_path).read
+    JSON.parse(user_string, symbolize_names: true)
   end
 end

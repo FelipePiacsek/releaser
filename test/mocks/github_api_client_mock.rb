@@ -10,7 +10,8 @@ class GithubApiClientMock
   end
 
   def user(user_id)
-    json_string = fixture_file("users/#{user_id}.json").read
+    user_file_path = github_user_fixture_path "#{user_id}.json"
+    json_string = fixture_file(user_file_path).read
     json_parse(json_string)
   end
 
