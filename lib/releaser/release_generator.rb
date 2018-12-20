@@ -44,7 +44,7 @@ class ReleaseGenerator
     before_deploying_text = build_deploy_text tasks, :before
     after_deploying_text = build_deploy_text tasks, :after
 
-    contributors_text = contributors.map { |c| "#{c.name} | #{c.email}"}.join("\n")
+    contributors_text = contributors.map { |c| "#{c.name} | #{c.email}" }.join("\n")
     formatted_time = Time.now.strftime("%Y%m%d")
     template = File.read("./lib/releaser/templates/#{template_file}")
     template % { changes: changes_text,
@@ -52,8 +52,7 @@ class ReleaseGenerator
                  before_deploying_tasks: before_deploying_text,
                  after_deploying_tasks: after_deploying_text,
                  tag: formatted_time,
-                 title: formatted_time,
-               }
+                 title: formatted_time, }
   end
 
   def build_deploy_text(tasks, phase)

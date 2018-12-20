@@ -6,23 +6,36 @@ class GithubClientTest < BaseReleaserTest
     @mocked_client = GithubClientMock.new
   end
 
-  test 'should return an array of PullRequest models when #pull_requests method is called for a given repository' do
-    scenario_path = GITHUB_4_UNRELEASED_3_RELEASED_PATH
+  def assert_pull_request(expected, actual)
+    assert actual.is_a?(PullRequest)
+    assert_equal expected[:id], actual.id
+    assert_equal expected[:title], actual.title
+    assert_equal expected[:number], actual.number
+    assert_equal expected[:merge_commit_sha], actual.merge_commit_sha
+    assert_equal expected[:user][:id], actual.contributor.id
+    assert_equal expected[:user][:email], actual.contributor.email
+    assert_equal expected[:user][:name], actual.contributor.name
+    assert_equal expected[:user][:login], actual.contributor.login
+  end
 
-    expected_data = build_expected_pull_requests(scenario_path)
-    pull_requests = @mocked_client.pull_requests(scenario_path)
+  test 'should return an array of PullRequest models when #pull_requests method is called for a given repository' do
+    scenario = GITHUB_4_UNRELEASED_3_RELEASED
+
+    expected_data = build_expected_pull_requests(scenario)
+    pull_requests = @mocked_client.pull_requests(scenario)
 
     assert_equal expected_data.size, pull_requests.size
-    expected_data.zip(pull_requests).each do |expected, actual|
-      assert actual.is_a?(PullRequest)
-      assert_equal expected[:id], actual.id
-      assert_equal expected[:title], actual.title
-      assert_equal expected[:number], actual.number
-      assert_equal expected[:merge_commit_sha], actual.merge_commit_sha
-      assert_equal expected[:user][:id], actual.contributor.id
-      assert_equal expected[:user][:email], actual.contributor.email
-      assert_equal expected[:user][:name], actual.contributor.name
-    end
+    expected_data.zip(pull_requests).each { |expected, actual| assert_pull_request(expected, actual) }
+  end
+
+  test 'should return 4 unreleased pull requests for the given 4 unreleased/3 released pr scenario' do
+    scenario = GITHUB_4_UNRELEASED_3_RELEASED
+
+    expected_data = build_expected_pull_requests(scenario).reject { |pr| pr[:released] }
+    pull_requests = @mocked_client.unreleased_pull_requests(scenario)
+
+    assert_equal expected_data.size, pull_requests.size
+    expected_data.zip(pull_requests).each { |expected, actual| assert_pull_request(expected, actual) }
   end
 
   test 'should return an User model when #user method is called for a given user_id' do
@@ -37,8 +50,8 @@ class GithubClientTest < BaseReleaserTest
     assert_equal expected_user[:login], actual_user.login
   end
 
-  def build_expected_pull_requests(scenario_path)
-    pr_file_content = fixture_file(scenario_path).read
+  def build_expected_pull_requests(scenario)
+    pr_file_content = fixture_file(scenario[:pull_requests]).read
     expected_prs = JSON.parse(pr_file_content, symbolize_names: true)
 
     expected_prs.each do |pr|

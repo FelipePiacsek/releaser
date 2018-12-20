@@ -1,0 +1,37 @@
+Metrics:
+    Enabled: false
+Style:
+    Enabled: false
+
+Layout/AlignParameters:
+    Enabled: false
+Layout/EmptyLinesAroundBlockBody:
+    Enabled: false
+Layout/EmptyLinesAroundClassBody:
+    Enabled: false
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+    Enabled: false
+Layout/ExtraSpacing:
+    Enabled: false
+Layout/IndentArray:
+    Enabled: false
+Layout/IndentHash:
+    Enabled: false
+Layout/MultilineMethodCallIndentation:
+    Enabled: false
+Layout/SpaceInsideHashLiteralBraces:
+    Enabled: false
+
+Lint/AssignmentInCondition:
+    Enabled: false
+Lint/ShadowingOuterLocalVariable:
+    Enabled: false
+Lint/UnderscorePrefixedVariableName:
+    Enabled: false
+Lint/UnusedMethodArgument:
+    Enabled: false
+Lint/UselessAssignment:
+    Enabled: false
+
+Security/JSONLoad:
+    Enabled: false

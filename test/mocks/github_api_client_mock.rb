@@ -4,8 +4,8 @@ require 'json'
 
 class GithubApiClientMock
   include FileHelper
-  def pull_requests(scenario_file_path, _options)
-    json_string = fixture_file(scenario_file_path).read
+  def pull_requests(scenario, _options)
+    json_string = fixture_file(scenario[:pull_requests]).read
     json_parse json_string
   end
 
@@ -13,6 +13,11 @@ class GithubApiClientMock
     user_file_path = github_user_fixture_path "#{user_id}.json"
     json_string = fixture_file(user_file_path).read
     json_parse(json_string)
+  end
+
+  def tags(scenario)
+    json_string = fixture_file(scenario[:tags]).read
+    json_parse json_string
   end
 
   private
