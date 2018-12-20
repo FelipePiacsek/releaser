@@ -6,7 +6,7 @@ class ReleaserModelTest < BaseReleaserTest
   def setup
     attrs_hash = {
       testing: EXPECTED_METHOD_RETURN_VALUE,
-      should: { allow: { nested: { calls: EXPECTED_METHOD_RETURN_VALUE } } }
+      should: { allow: { chained: { calls: EXPECTED_METHOD_RETURN_VALUE } } }
     }
     @releaser_model = ReleaserModel.new attrs_hash
   end
@@ -20,8 +20,8 @@ class ReleaserModelTest < BaseReleaserTest
     assert_equal @releaser_model.testing, EXPECTED_METHOD_RETURN_VALUE
   end
 
-  test 'should allow nested attributes to be retrieved via method call' do
-    assert_equal @releaser_model.should.allow.nested.calls, EXPECTED_METHOD_RETURN_VALUE
+  test 'should allow chained attributes to be retrieved via method call' do
+    assert_equal @releaser_model.should.allow.chained.calls, EXPECTED_METHOD_RETURN_VALUE
   end
 
   test 'should raise NoMethodError when a method which does not correspond to an attribute is called' do
