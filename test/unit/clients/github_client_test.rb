@@ -1,9 +1,10 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/releaser/models/pull_request'
-require_relative '../../../test/mocks/github_client_mock'
+require_relative '../../../lib/releaser/clients/github_client'
+require_relative '../../../test/mocks/github_api_client_mock'
 class GithubClientTest < BaseReleaserTest
   def setup
-    @mocked_client = GithubClientMock.new
+    @mocked_client = GithubClient.new(GithubApiClientMock.new)
   end
 
   def assert_pull_request(expected, actual)

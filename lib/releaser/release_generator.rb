@@ -1,42 +1,27 @@
+require_relative '../../lib/releaser/clients/github_client'
+
 class ReleaseGenerator
   ONEAPI_REPO_ID = 103_977_523
   RKPCORE_REPO_ID = 52_028_453
   def initialize(repository = ONEAPI_REPO_ID)
-    @client = Octokit::Client.new(netrc: true)
+    @client = GithubClient.new
     @repository = repository
   end
 
   def generate
-    prs = unreleased_prs
-    contributors = fetch_contributors prs
-    build_release_message prs, contributors
+    prs = @client.unreleased_pull_requests(@repository)
+    build_release_message prs
   end
 
   private
 
-  # Will fail if there are more than 50 unreleased PRs.
-  def unreleased_prs
-    last_release_sha = @client.tags(@repository).first.commit.sha
-    last_prs = @client.pull_requests(@repository, state: :closed, per_page: 50)
-    last_prs.take_while { |pr| pr.merge_commit_sha != last_release_sha }
-  end
-
-  def fetch_contributors(prs)
-    contributors_hash = {}
-
-    prs.each do |pull_request|
-      id = pull_request.user.id
-      contributors_hash[id] = @client.user(id) unless contributors_hash[id]
-    end
-
-    contributors_hash.values
-  end
-
-  def build_release_message(prs, contributors, template_file = 'github_release_template.txt')
+  def build_release_message(prs, template_file = 'github_release_template.txt')
     changes = []
     tasks = {}
+    contributors_hash = {}
     prs.each do |pull_request|
-      contributor = contributors.find { |c| pull_request.user.id == c.id }
+      contributor = pull_request.contributor
+      contributors_hash[pull_request.contributor.id] = contributor
       tasks[pull_request.number] = fetch_deploying_tasks pull_request
       changes << "**PR ##{pull_request.number}** - **#{pull_request.title}** *powered by #{contributor.name}*"
     end
@@ -44,7 +29,7 @@ class ReleaseGenerator
     before_deploying_text = build_deploy_text tasks, :before
     after_deploying_text = build_deploy_text tasks, :after
 
-    contributors_text = contributors.map { |c| "#{c.name} | #{c.email}" }.join("\n")
+    contributors_text = contributors_hash.values.map { |c| "#{c.name} | #{c.email}" }.join("\n")
     formatted_time = Time.now.strftime("%Y%m%d")
     template = File.read("./lib/releaser/templates/#{template_file}")
     template % { changes: changes_text,

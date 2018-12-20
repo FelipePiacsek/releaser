@@ -7,8 +7,8 @@ class GithubClient
   require_relative '../../../lib/releaser/models/user'
   DEFAULT_PAGINATION_AMOUNT = 100
 
-  def initialize
-    @client = github_api_client
+  def initialize(api_client = default_api_client)
+    @client = api_client
     @users_cache = {}
   end
 
@@ -36,14 +36,12 @@ class GithubClient
     decode_pull_requests unreleased
   end
 
-  protected
+  private
 
-  def github_api_client
+  def default_api_client
     require 'octokit'
     Octokit::Client.new(netrc: true)
   end
-
-  private
 
   def fetch_pull_requests(repository_id, **options)
     options[:per_page] = options[:per_page] || DEFAULT_PAGINATION_AMOUNT
