@@ -15,7 +15,7 @@ class ReleaseGenerator
 
   private
 
-  def build_release_message(prs, template_file = 'github_release_template.txt')
+  def build_release_message(prs, template_file = 'full_release_template.txt')
     changes = []
     tasks = {}
     contributors_hash = {}
@@ -31,7 +31,7 @@ class ReleaseGenerator
 
     contributors_text = contributors_hash.values.map { |c| "#{c.name} | #{c.email}" }.join("\n")
     formatted_time = Time.now.strftime("%Y%m%d")
-    template = File.read("./lib/releaser/templates/#{template_file}")
+    template = File.read("./lib/releaser/planner/templates/#{template_file}")
     template % { changes: changes_text,
                  contributors: contributors_text,
                  before_deploying_tasks: before_deploying_text,
