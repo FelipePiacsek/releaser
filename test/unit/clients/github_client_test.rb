@@ -35,8 +35,17 @@ class GithubClientTest < BaseReleaserTest
     expected_data = build_expected_pull_requests(scenario).reject { |pr| pr[:released] }
     pull_requests = @mocked_client.unreleased_pull_requests(scenario)
 
+    assert_equal 4, expected_data.size
     assert_equal expected_data.size, pull_requests.size
     expected_data.zip(pull_requests).each { |expected, actual| assert_pull_request(expected, actual) }
+  end
+
+  test 'should return 0 unreleased pull requests for the given 0 unreleased/0 released pr scenario' do
+    scenario = GITHUB_0_UNRELEASED_0_RELEASED
+
+    pull_requests = @mocked_client.unreleased_pull_requests(scenario)
+
+    assert_equal 0, pull_requests.size
   end
 
   test 'should return an User model when #user method is called for a given user_id' do
