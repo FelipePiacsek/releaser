@@ -1,7 +1,26 @@
 [
   {
+    "name": "20181226",
     "commit": {
       "sha": "6acc9b7d051060b260d327b8b8985afdb10d841d"
+    }
+  },
+  {
+    "name": "20181128",
+    "commit": {
+      "sha": "6acc9b7d051d327b8b89060b26085afdb10d841d"
+    }
+  },
+  {
+    "name": "20181127",
+    "commit": {
+      "sha": "6acc9b327b8b87d051060b260d985afdb10d841d"
+    }
+  },
+  {
+    "name": "20181126",
+    "commit": {
+      "sha": "6acc9b7d00d3287b8b51060b26895afdb10d841d"
     }
   }
 ]

@@ -1,10 +1,12 @@
+require_relative '../../../lib/releaser/models/pull_request'
+require_relative '../../../lib/releaser/models/user'
+require_relative '../../../lib/releaser/models/tag'
+
 ##
 # This class encapsulates the communication with Github API.
 # By default, it will use Octokit as the client.
 # For more info on Octokit, please check this: https://github.com/octokit/octokit.rb
 class GithubClient
-  require_relative '../../../lib/releaser/models/pull_request'
-  require_relative '../../../lib/releaser/models/user'
   DEFAULT_PAGINATION_AMOUNT = 100
 
   def initialize(api_client = default_api_client)
@@ -26,6 +28,12 @@ class GithubClient
     pull_requests = fetch_pull_requests repository_id, options
 
     decode_pull_requests pull_requests
+  end
+
+  def tags(repository_id)
+    tags = fetch_tags repository_id
+
+    decode_tags tags
   end
 
   def unreleased_pull_requests(repository_id)
@@ -61,12 +69,20 @@ class GithubClient
     tags.empty? ? nil : tags.first[:commit][:sha]
   end
 
+  def fetch_tags(repository_id)
+    @client.tags repository_id
+  end
+
   def decode_pull_requests(pull_requests)
     pull_requests.map do |pr|
       pr_attrs = pr.to_h
       contributor_attrs = fetch_user(pr[:user][:id]).to_h
       PullRequest.new(pr_attrs, contributor_attrs)
     end
+  end
+
+  def decode_tags(tags)
+    tags.map { |t| Tag.new(t.to_h) }
   end
 
 end

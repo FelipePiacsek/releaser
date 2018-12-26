@@ -1,5 +1,6 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/releaser/models/pull_request'
+require_relative '../../../lib/releaser/models/tag'
 require_relative '../../../lib/releaser/clients/github_client'
 require_relative '../../../test/mocks/github_api_client_mock'
 class GithubClientTest < BaseReleaserTest
@@ -27,6 +28,20 @@ class GithubClientTest < BaseReleaserTest
 
     assert_equal expected_data.size, pull_requests.size
     expected_data.zip(pull_requests).each { |expected, actual| assert_pull_request(expected, actual) }
+  end
+
+  test 'should return an Array of Tag models when #tags method is called for a given repository' do
+    scenario = GITHUB_4_UNRELEASED_3_RELEASED
+
+    expected_data = build_expected_tags scenario
+    tags = @mocked_client.tags scenario
+
+    assert_equal expected_data.size, tags.size
+    expected_data.zip(tags).each do |expected, actual|
+      assert actual.is_a?(Tag)
+      assert_equal expected[:commit][:sha], actual.commit.sha
+      assert_equal expected[:name], actual.name
+    end
   end
 
   test 'should return 4 unreleased pull requests for the given 4 unreleased/3 released pr scenario' do
@@ -71,6 +86,11 @@ class GithubClientTest < BaseReleaserTest
     end
 
     expected_prs
+  end
+
+  def build_expected_tags(scenario)
+    pr_file_content = fixture_file(scenario[:tags]).read
+    JSON.parse(pr_file_content, symbolize_names: true)
   end
 
   def build_expected_user(user_id)
