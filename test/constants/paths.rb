@@ -1,4 +1,4 @@
-module FixturePaths
+module Paths
   GITHUB_USER_PATH = 'users/github'.freeze
 
   # Scenarios
@@ -11,4 +11,10 @@ module FixturePaths
       pull_requests: 'scenarios/github/0_unreleased_and_0_released_prs.json'.freeze,
       tags: 'scenarios/github/0_unreleased_and_0_released_tags.json'.freeze
   }.freeze
+
+
+  # Templates
+  TEMPLATES_BASE_PATH = 'lib/releaser/planner/templates'
+  INTRO_TEMPLATE_PATH = 'partials/intro.txt.erb'
 end
+
