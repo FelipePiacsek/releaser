@@ -16,5 +16,6 @@ module Paths
   # Templates
   TEMPLATES_BASE_PATH = 'lib/releaser/planner/templates'
   INTRO_TEMPLATE_PATH = 'partials/intro.txt.erb'
+  EMPTY_RELEASE_TEMPLATE_PATH = 'empty_release_template.txt.erb'
 end
 
