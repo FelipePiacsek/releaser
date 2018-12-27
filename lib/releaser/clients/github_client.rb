@@ -21,7 +21,7 @@ class GithubClient
   def user(user_id)
     attrs_hash = fetch_user(user_id).to_h
 
-    User.new attrs_hash
+    decode_user attrs_hash
   end
 
   def pull_requests(repository_id, **options)
@@ -83,6 +83,10 @@ class GithubClient
 
   def decode_tags(tags)
     tags.map { |t| Tag.new(t.to_h) }
+  end
+
+  def decode_user(attrs_hash)
+    User.new attrs_hash
   end
 
 end
