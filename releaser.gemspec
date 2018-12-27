@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'concurrent-ruby', '~> 1.1.0'
   spec.add_dependency 'netrc', '~> 0.11.0'
   spec.add_dependency 'octokit', '~> 4.0'
   spec.add_dependency 'thor', '~> 0.20.3'
