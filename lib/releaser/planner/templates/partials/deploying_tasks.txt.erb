@@ -1,2 +1,6 @@
-%{before_deploying_tasks}
-%{after_deploying_tasks}
+<% unless deploying_tasks.empty? %>
+  ATTENTION: There are tasks to be performed <%= phase.upcase %> deploying:
+  <% deploying_tasks.each do |task| %>
+    <%= task.strip %>
+  <% end %>
+<%end%>
