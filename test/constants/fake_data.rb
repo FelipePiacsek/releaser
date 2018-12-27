@@ -8,4 +8,7 @@ module FakeData
   VALID_ERB_TEMPLATE = 'This is an erb template. It should render <%= this_word %>.'
   NON_EMPTY_STRING = 'This is an ordinary, non-empty, string.'
   EMPTY_STRING = ''
+
+  NON_BLANK_STRINGS = [NON_EMPTY_STRING, '.', '!', '\t\n\r', ' blah ']
+  BLANK_STRINGS = [EMPTY_STRING, '   ', "\t\n\r", nil]
 end
