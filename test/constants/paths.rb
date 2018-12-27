@@ -18,6 +18,7 @@ module Paths
   INTRO_TEMPLATE_PATH = 'partials/intro.txt.erb'
   TAG_TEMPLATE_PATH = 'partials/tag.txt.erb'
   TITLE_TEMPLATE_PATH = 'partials/title.txt.erb'
+  CHANGES_TEMPLATE_PATH = 'partials/changes.txt.erb'
   EMPTY_RELEASE_TEMPLATE_PATH = 'empty_release_template.txt.erb'
 end
 

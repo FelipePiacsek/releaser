@@ -1,3 +1,5 @@
 ## Changes on this release:
 
-%{changes}
+<% pull_requests.each do |pull_request| %>
+  **PR <%= pull_request.number %>** - **<%= pull_request.title %>** *powered by <%= pull_request.contributor.name %>*
+<% end %>
