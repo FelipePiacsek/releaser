@@ -1,7 +1,7 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/views/after_deploying_view'
-require_relative '../../../fixtures/factories/pull_request_factory'
-require_relative '../../../../lib/releaser/views/renderers'
+require_relative '../../test_helper'
+require_relative '../../../lib/releaser/views/after_deploying_view'
+require_relative '../../fixtures/factories/pull_request_factory'
+require_relative '../../../lib/releaser/views/renderers'
 
 class AfterDeployingViewTest < BaseReleaserTest
 

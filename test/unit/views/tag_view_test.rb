@@ -1,5 +1,5 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/views/tag_view'
+require_relative '../../test_helper'
+require_relative '../../../lib/releaser/views/tag_view'
 
 class TagViewTest < BaseReleaserTest
 

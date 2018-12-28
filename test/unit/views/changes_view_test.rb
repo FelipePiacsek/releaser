@@ -1,5 +1,5 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/views/changes_view'
+require_relative '../../test_helper'
+require_relative '../../../lib/releaser/views/changes_view'
 
 class ChangesViewTest < BaseReleaserTest
 

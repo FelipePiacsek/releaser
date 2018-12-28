@@ -1,7 +1,7 @@
-require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/views/empty_release_view'
-require_relative '../../../../lib/releaser/models/tag'
-require_relative '../../../../lib/releaser/views/renderers'
+require_relative '../../test_helper'
+require_relative '../../../lib/releaser/views/empty_release_view'
+require_relative '../../../lib/releaser/models/tag'
+require_relative '../../../lib/releaser/views/renderers'
 
 class EmptyReleaseViewTest < BaseReleaserTest
 
