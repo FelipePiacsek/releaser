@@ -1,8 +1,8 @@
 require_relative 'renderers'
-require_relative 'base_template_builder'
+require_relative 'base_view'
 
 module Releaser
-  class TitleBuilder < BaseTemplateBuilder
+  class TitleView < BaseView
     def build
       template = template_string!('partials/title.txt.erb')
       vars = { title: Time.now.strftime("%Y%m%d") }

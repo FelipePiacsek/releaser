@@ -1,8 +1,8 @@
 require_relative 'renderers'
-require_relative 'base_template_builder'
+require_relative 'base_view'
 
 module Releaser
-  class EmptyReleaseBuilder < BaseTemplateBuilder
+  class EmptyReleaseView < BaseView
 
     def initialize(last_release)
       @last_release_title = last_release.nil? ? nil : last_release.name

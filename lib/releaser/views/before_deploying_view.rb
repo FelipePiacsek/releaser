@@ -1,9 +1,9 @@
 require_relative 'renderers'
-require_relative 'base_template_builder'
+require_relative 'base_view'
 require_relative '../utils/string'
 
 module Releaser
-  class BeforeDeployingBuilder < BaseTemplateBuilder
+  class BeforeDeployingView < BaseView
 
     def initialize(pull_requests)
       @pull_requests = pull_requests

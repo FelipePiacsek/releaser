@@ -1,15 +1,15 @@
 require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/views/before_deploying_builder'
+require_relative '../../../../lib/releaser/views/before_deploying_view'
 require_relative '../../../fixtures/factories/pull_request_factory'
 require_relative '../../../../lib/releaser/views/renderers'
 
-class BeforeDeployingBuilderTest < BaseReleaserTest
+class BeforeDeployingViewTest < BaseReleaserTest
 
   include Factories::PullRequest
 
   test 'should return empty string when the pull request body does not contain a before deploying section' do
     pull_requests = pull_request_list GITHUB_WITHOUT_BEFORE_DEPLOYING
-    actual_result = Releaser::BeforeDeployingBuilder.new(pull_requests).build
+    actual_result = Releaser::BeforeDeployingView.new(pull_requests).build
 
     assert_equal EMPTY_STRING, actual_result
   end
@@ -22,7 +22,7 @@ class BeforeDeployingBuilderTest < BaseReleaserTest
 
     scenarios.each do |scenario|
       pull_requests = pull_request_list scenario
-      actual_result = Releaser::BeforeDeployingBuilder.new(pull_requests).build
+      actual_result = Releaser::BeforeDeployingView.new(pull_requests).build
 
       assert_equal EMPTY_STRING, actual_result
     end
@@ -36,7 +36,7 @@ class BeforeDeployingBuilderTest < BaseReleaserTest
 
     scenarios.each do |scenario|
       pull_requests = pull_request_list scenario
-      actual_result = Releaser::BeforeDeployingBuilder.new(pull_requests).build
+      actual_result = Releaser::BeforeDeployingView.new(pull_requests).build
       expected_result = expected_before_deploy scenario
 
       assert_equal expected_result, actual_result

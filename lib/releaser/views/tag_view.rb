@@ -1,8 +1,8 @@
 require_relative 'renderers'
-require_relative 'base_template_builder'
+require_relative 'base_view'
 
 module Releaser
-  class TagBuilder < BaseTemplateBuilder
+  class TagView < BaseView
     def build
       template = template_string!('partials/tag.txt.erb')
       vars = { tag: Time.now.strftime("%Y%m%d") }

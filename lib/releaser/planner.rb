@@ -1,5 +1,5 @@
 require_relative '../../lib/releaser/clients/github_client'
-require_relative 'views/empty_release_builder'
+require_relative 'views/empty_release_view'
 
 ## Releaser plan builder.
 # Only exposes plan method. By default uses github as client.
@@ -17,7 +17,7 @@ module Releaser
       prs = @client.unreleased_pull_requests repository_id
       if prs.empty?
         last_release = @client.tags(repository_id).first
-        Releaser::EmptyReleaseBuilder.new(last_release).build
+        Releaser::EmptyReleaseView.new(last_release).build
       else
         raise NotImplementedError
       end

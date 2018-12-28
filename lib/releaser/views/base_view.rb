@@ -1,4 +1,4 @@
-class BaseTemplateBuilder
+class BaseView
 
   BASE_TEMPLATES_PATH = 'lib/releaser/templates'
 

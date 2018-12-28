@@ -1,8 +1,8 @@
 require_relative 'renderers'
-require_relative 'base_template_builder'
+require_relative 'base_view'
 
 module Releaser
-  class ChangesBuilder < BaseTemplateBuilder
+  class ChangesView < BaseView
 
     def initialize(pull_requests)
       @pull_requests = pull_requests

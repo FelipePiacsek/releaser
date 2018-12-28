@@ -1,7 +1,7 @@
 require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/views/changes_builder'
+require_relative '../../../../lib/releaser/views/changes_view'
 
-class ChangesBuilderTest < BaseReleaserTest
+class ChangesViewTest < BaseReleaserTest
 
   # TODO: Move me.
   def build_pull_requests(scenario = GITHUB_4_UNRELEASED_3_RELEASED)
@@ -21,22 +21,22 @@ class ChangesBuilderTest < BaseReleaserTest
     @pull_requests = build_pull_requests
   end
 
-  test 'should correctly build changes template for non-empty pull requests array' do
+  test 'should correctly render changes template for non-empty pull requests array' do
     template = template_file(CHANGES_TEMPLATE_PATH).read
     vars = {pull_requests: @pull_requests}
 
     expected_output = Releaser::Renderers.erb template, vars
-    actual_output = Releaser::ChangesBuilder.new(@pull_requests).build
+    actual_output = Releaser::ChangesView.new(@pull_requests).build
 
     assert_equal expected_output, actual_output
   end
 
-  test 'should correctly build changes template for empty pull requests array' do
+  test 'should correctly render changes template for empty pull requests array' do
     template = template_file(CHANGES_TEMPLATE_PATH).read
     vars = {pull_requests: []}
 
     expected_output = Releaser::Renderers.erb template, vars
-    actual_output = Releaser::ChangesBuilder.new([]).build
+    actual_output = Releaser::ChangesView.new([]).build
 
     assert_equal expected_output, actual_output
   end
