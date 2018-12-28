@@ -4,6 +4,4 @@ Thanks a lot for your contributions:
 
 Author's Name | Author's Email
 ------------- | --------------
-<% contributors.each do |contributor| -%>
-<%= contributor.name %> | <%= contributor.email %>
-<% end %>
+Felipe Piacsek | felipe.piacsek@gmail.com

@@ -4,7 +4,8 @@ module Paths
   # Scenarios
   GITHUB_4_UNRELEASED_3_RELEASED = {
     pull_requests: 'scenarios/github/4_unreleased_and_3_released_prs.json'.freeze,
-    tags: 'scenarios/github/4_unreleased_and_3_released_tags.json'.freeze
+    tags: 'scenarios/github/4_unreleased_and_3_released_tags.json'.freeze,
+    contributors: 'scenarios/github/4_unreleased_and_3_released_expected_contributors_template.txt'.freeze
   }.freeze
 
   GITHUB_0_UNRELEASED_0_RELEASED = {
@@ -54,6 +55,8 @@ module Paths
   TAG_TEMPLATE_PATH = 'partials/tag.txt.erb'
   TITLE_TEMPLATE_PATH = 'partials/title.txt.erb'
   CHANGES_TEMPLATE_PATH = 'partials/changes.txt.erb'
+  CONTRIBUTORS_TEMPLATE_PATH = 'partials/contributors.txt.erb'
   DEPLOYING_TASKS_TEMPLATE_PATH = 'partials/deploying_tasks.txt.erb'
   EMPTY_RELEASE_TEMPLATE_PATH = 'empty_release_template.txt.erb'
+  FULL_RELEASE_TEMPLATE_PATH = 'full_release_template.txt.erb'
 end
