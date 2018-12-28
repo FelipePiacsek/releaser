@@ -20,7 +20,7 @@ class EmptyReleaseViewTest < BaseReleaserTest
     template = template_file(EMPTY_RELEASE_TEMPLATE_PATH).read
     vars = {last_release_title: @last_release.name}
     expected_output = Releaser::Renderers.erb template, vars
-    actual_output = Releaser::EmptyReleaseView.new(@last_release).build
+    actual_output = Releaser::EmptyReleaseView.new(@last_release).render
 
     assert_equal expected_output, actual_output
   end
@@ -28,7 +28,7 @@ class EmptyReleaseViewTest < BaseReleaserTest
   test 'should correctly render an empty release template for nil last_release' do
     template = template_file(EMPTY_RELEASE_TEMPLATE_PATH).read
     expected_output = Releaser::Renderers.erb template
-    actual_output = Releaser::EmptyReleaseView.new(nil).build
+    actual_output = Releaser::EmptyReleaseView.new(nil).render
 
     assert_equal expected_output, actual_output
   end

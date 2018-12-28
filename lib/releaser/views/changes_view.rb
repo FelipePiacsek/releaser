@@ -8,7 +8,7 @@ module Releaser
       @pull_requests = pull_requests
     end
 
-    def build
+    def render
       template = template_string!('partials/changes.txt.erb')
       vars = { pull_requests: @pull_requests }
 

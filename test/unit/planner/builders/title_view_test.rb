@@ -8,7 +8,7 @@ class TitleViewTest < BaseReleaserTest
     vars = {title: Time.now.strftime("%Y%m%d")}
 
     expected_output = Releaser::Renderers.erb template, vars
-    actual_output = Releaser::TitleView.new.build
+    actual_output = Releaser::TitleView.new.render
 
     assert_equal expected_output, actual_output
   end

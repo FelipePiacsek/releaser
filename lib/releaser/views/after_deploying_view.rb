@@ -9,7 +9,7 @@ module Releaser
       @pull_requests = pull_requests
     end
 
-    def build
+    def render
       phase = 'after'
       template = template_string!('partials/deploying_tasks.txt.erb')
       deploying_tasks = @pull_requests.map { |pr| fetch_after_deploying_tasks pr }

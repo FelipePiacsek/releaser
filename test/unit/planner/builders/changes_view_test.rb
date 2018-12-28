@@ -26,7 +26,7 @@ class ChangesViewTest < BaseReleaserTest
     vars = {pull_requests: @pull_requests}
 
     expected_output = Releaser::Renderers.erb template, vars
-    actual_output = Releaser::ChangesView.new(@pull_requests).build
+    actual_output = Releaser::ChangesView.new(@pull_requests).render
 
     assert_equal expected_output, actual_output
   end
@@ -36,7 +36,7 @@ class ChangesViewTest < BaseReleaserTest
     vars = {pull_requests: []}
 
     expected_output = Releaser::Renderers.erb template, vars
-    actual_output = Releaser::ChangesView.new([]).build
+    actual_output = Releaser::ChangesView.new([]).render
 
     assert_equal expected_output, actual_output
   end

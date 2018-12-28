@@ -17,7 +17,7 @@ module Releaser
       prs = @client.unreleased_pull_requests repository_id
       if prs.empty?
         last_release = @client.tags(repository_id).first
-        Releaser::EmptyReleaseView.new(last_release).build
+        Releaser::EmptyReleaseView.new(last_release).render
       else
         raise NotImplementedError
       end

@@ -8,7 +8,7 @@ module Releaser
       @last_release_title = last_release.nil? ? nil : last_release.name
     end
 
-    def build
+    def render
       template = template_string!('empty_release_template.txt.erb')
       vars = {last_release_title: @last_release_title}
 

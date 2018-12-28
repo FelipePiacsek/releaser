@@ -9,7 +9,7 @@ class BeforeDeployingViewTest < BaseReleaserTest
 
   test 'should return empty string when the pull request body does not contain a before deploying section' do
     pull_requests = pull_request_list GITHUB_WITHOUT_BEFORE_DEPLOYING
-    actual_result = Releaser::BeforeDeployingView.new(pull_requests).build
+    actual_result = Releaser::BeforeDeployingView.new(pull_requests).render
 
     assert_equal EMPTY_STRING, actual_result
   end
@@ -22,7 +22,7 @@ class BeforeDeployingViewTest < BaseReleaserTest
 
     scenarios.each do |scenario|
       pull_requests = pull_request_list scenario
-      actual_result = Releaser::BeforeDeployingView.new(pull_requests).build
+      actual_result = Releaser::BeforeDeployingView.new(pull_requests).render
 
       assert_equal EMPTY_STRING, actual_result
     end
@@ -36,7 +36,7 @@ class BeforeDeployingViewTest < BaseReleaserTest
 
     scenarios.each do |scenario|
       pull_requests = pull_request_list scenario
-      actual_result = Releaser::BeforeDeployingView.new(pull_requests).build
+      actual_result = Releaser::BeforeDeployingView.new(pull_requests).render
       expected_result = expected_before_deploy scenario
 
       assert_equal expected_result, actual_result
