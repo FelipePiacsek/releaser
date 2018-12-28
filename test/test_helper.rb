@@ -3,10 +3,12 @@ require 'releaser'
 require 'minitest/autorun'
 require_relative 'declarative_testing'
 require_relative 'constants/fake_data'
+require_relative 'constants/scenarios'
 require_relative 'file_helper'
 
 class BaseReleaserTest < Minitest::Test
   include FakeData
+  include Scenarios
   include FileHelper
   Minitest::Test.make_my_diffs_pretty!
 end
