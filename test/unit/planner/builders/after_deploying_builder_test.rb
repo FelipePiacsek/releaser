@@ -3,7 +3,7 @@ require_relative '../../../../lib/releaser/planner/builders/after_deploying_buil
 require_relative '../../../fixtures/factories/pull_request_factory'
 require_relative '../../../../lib/releaser/planner/renderers'
 
-class ChangesBuilderTest < BaseReleaserTest
+class AfterDeployingBuilderTest < BaseReleaserTest
 
   include Factories::PullRequest
 
