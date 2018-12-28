@@ -44,6 +44,10 @@ module Paths
       pull_requests: 'scenarios/github/without_after_deploying_and_with_before_deploying_prs.json'.freeze
   }
 
+  GITHUB_WITH_BEFORE_DEPLOYING_AND_OTHER_CONTENT_IN_BODY = {
+      pull_requests: 'scenarios/github/with_before_deploying_and_other_content_in_body_prs.json'.freeze
+  }
+
   # Templates
   TEMPLATES_BASE_PATH = 'lib/releaser/templates'
   INTRO_TEMPLATE_PATH = 'partials/intro.txt.erb'

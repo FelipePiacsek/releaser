@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://api.github.com/repos/FakeRepo/fake-project/pulls/306",
+    "id": 240190946,
+    "number": 306,
+    "state": "closed",
+    "title": "Latest unreleased PR",
+    "released": false,
+    "user": {
+      "login": "FelipePiacsek",
+      "id": 9383701,
+      "node_id": "MDQ6VXNlcjkzODM3MDE=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/9383701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/FelipePiacsek",
+      "html_url": "https://github.com/FelipePiacsek",
+      "followers_url": "https://api.github.com/users/FelipePiacsek/followers",
+      "following_url": "https://api.github.com/users/FelipePiacsek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/FelipePiacsek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/FelipePiacsek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/FelipePiacsek/subscriptions",
+      "organizations_url": "https://api.github.com/users/FelipePiacsek/orgs",
+      "repos_url": "https://api.github.com/users/FelipePiacsek/repos",
+      "events_url": "https://api.github.com/users/FelipePiacsek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/FelipePiacsek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "expected_before_deploy_task": "\n - You should take a break.",
+    "body": "This PR aims to fix the whole system... ### Before deploying\n\n - You should take a break.",
+    "created_at": "2018-12-20 14:34:47 UTC",
+    "updated_at": "2018-12-20 14:35:17 UTC",
+    "closed_at": "2018-12-20 14:35:14 UTC",
+    "merged_at": "2018-12-20 14:35:14 UTC",
+    "merge_commit_sha": "d05106acc0d327b9b760b268b8985afdb10d841d"
+  }
+]

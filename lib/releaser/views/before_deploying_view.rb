@@ -36,7 +36,9 @@ module Releaser
       elsif !begin_marker.nil?
         # Better than nothing, but bad as it might return more content
         # than desired if before deploying section is not the last one in the PR
-        before_deploy_text = raw_message.gsub begin_marker, ''
+        begin_index = raw_message.index(begin_marker) + begin_marker.length
+        end_index = raw_message.length
+        before_deploy_text = raw_message.slice(begin_index, end_index)
       end
 
       before_deploy_text

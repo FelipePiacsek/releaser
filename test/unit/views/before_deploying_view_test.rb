@@ -31,7 +31,8 @@ class BeforeDeployingViewTest < BaseReleaserTest
   test 'should return the rendered template when the pull request contains a non blank content in the before deploying section' do
     scenarios = [
         GITHUB_WITHOUT_AFTER_DEPLOYING_AND_WITH_BEFORE_DEPLOYING,
-        GITHUB_WITH_AFTER_DEPLOYING_AND_BEFORE_DEPLOYING
+        GITHUB_WITH_AFTER_DEPLOYING_AND_BEFORE_DEPLOYING,
+        GITHUB_WITH_BEFORE_DEPLOYING_AND_OTHER_CONTENT_IN_BODY
     ]
 
     scenarios.each do |scenario|
