@@ -46,5 +46,4 @@ class AfterDeployingBuilderTest < BaseReleaserTest
     Releaser::Renderers.erb template, vars
   end
 
-
 end

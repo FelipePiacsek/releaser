@@ -44,7 +44,6 @@ module Paths
       pull_requests: 'scenarios/github/without_after_deploying_and_with_before_deploying_prs.json'.freeze
   }
 
-
   # Templates
   TEMPLATES_BASE_PATH = 'lib/releaser/planner/templates'
   INTRO_TEMPLATE_PATH = 'partials/intro.txt.erb'
@@ -54,4 +53,3 @@ module Paths
   DEPLOYING_TASKS_TEMPLATE_PATH = 'partials/deploying_tasks.txt.erb'
   EMPTY_RELEASE_TEMPLATE_PATH = 'empty_release_template.txt.erb'
 end
-

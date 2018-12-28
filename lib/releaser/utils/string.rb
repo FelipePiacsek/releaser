@@ -3,7 +3,6 @@ require 'concurrent/map'
 module Releaser
   module Utils
     module String
-
       # Snatched from ActiveSupport.
       # A string is blank if it's empty or contains whitespaces only:
       #

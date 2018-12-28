@@ -24,6 +24,5 @@ module Factories
     def pull_request_sample
       pull_request_list.sample
     end
-
   end
 end
