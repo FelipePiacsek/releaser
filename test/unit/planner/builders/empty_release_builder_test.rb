@@ -1,7 +1,7 @@
 require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/planner/builders/empty_release_builder'
+require_relative '../../../../lib/releaser/views/empty_release_builder'
 require_relative '../../../../lib/releaser/models/tag'
-require_relative '../../../../lib/releaser/planner/renderers'
+require_relative '../../../../lib/releaser/views/renderers'
 
 class EmptyReleaseBuilderTest < BaseReleaserTest
 

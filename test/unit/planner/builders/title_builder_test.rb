@@ -1,5 +1,5 @@
 require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/planner/builders/title_builder'
+require_relative '../../../../lib/releaser/views/title_builder'
 
 class TitleBuilderTest < BaseReleaserTest
 

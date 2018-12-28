@@ -1,6 +1,6 @@
-require_relative '../renderers'
+require_relative 'renderers'
 require_relative 'base_template_builder'
-require_relative '../../utils/string'
+require_relative '../utils/string'
 
 module Releaser
   class AfterDeployingBuilder < BaseTemplateBuilder

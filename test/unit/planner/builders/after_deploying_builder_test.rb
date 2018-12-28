@@ -1,7 +1,7 @@
 require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/planner/builders/after_deploying_builder'
+require_relative '../../../../lib/releaser/views/after_deploying_builder'
 require_relative '../../../fixtures/factories/pull_request_factory'
-require_relative '../../../../lib/releaser/planner/renderers'
+require_relative '../../../../lib/releaser/views/renderers'
 
 class AfterDeployingBuilderTest < BaseReleaserTest
 

@@ -1,5 +1,5 @@
 require_relative '../../test_helper'
-require_relative '../../../lib/releaser/planner/renderers'
+require_relative '../../../lib/releaser/views/renderers'
 
 class RenderersTest < BaseReleaserTest
 

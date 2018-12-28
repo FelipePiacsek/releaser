@@ -1,5 +1,5 @@
 require_relative '../../lib/releaser/clients/github_client'
-require_relative 'planner/planner'
+require_relative 'planner'
 
 class ReleaseGenerator
   ONEAPI_REPO_ID = 103_977_523

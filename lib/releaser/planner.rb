@@ -1,5 +1,5 @@
-require_relative '../../../lib/releaser/clients/github_client'
-require_relative 'builders/empty_release_builder'
+require_relative '../../lib/releaser/clients/github_client'
+require_relative 'views/empty_release_builder'
 
 ## Releaser plan builder.
 # Only exposes plan method. By default uses github as client.

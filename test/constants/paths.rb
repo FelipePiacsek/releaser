@@ -45,7 +45,7 @@ module Paths
   }
 
   # Templates
-  TEMPLATES_BASE_PATH = 'lib/releaser/planner/templates'
+  TEMPLATES_BASE_PATH = 'lib/releaser/templates'
   INTRO_TEMPLATE_PATH = 'partials/intro.txt.erb'
   TAG_TEMPLATE_PATH = 'partials/tag.txt.erb'
   TITLE_TEMPLATE_PATH = 'partials/title.txt.erb'

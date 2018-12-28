@@ -1,5 +1,5 @@
 require_relative '../../../test_helper'
-require_relative '../../../../lib/releaser/planner/builders/changes_builder'
+require_relative '../../../../lib/releaser/views/changes_builder'
 
 class ChangesBuilderTest < BaseReleaserTest
 

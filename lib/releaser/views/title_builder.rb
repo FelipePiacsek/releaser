@@ -1,4 +1,4 @@
-require_relative '../renderers'
+require_relative 'renderers'
 require_relative 'base_template_builder'
 
 module Releaser
