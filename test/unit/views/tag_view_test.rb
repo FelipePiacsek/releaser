@@ -5,7 +5,7 @@ class TagViewTest < BaseReleaserTest
 
   test 'should correctly render tag template' do
     template = template_file(TAG_TEMPLATE_PATH).read
-    vars = {tag: Time.now.strftime("%Y%m%d")}
+    vars = {tag: Time.now.strftime('%Y%m%d')}
 
     expected_output = Releaser::Renderers.erb template, vars
     actual_output = Releaser::TagView.new.render

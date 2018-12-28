@@ -1,0 +1,18 @@
+<%= intro %>
+
+<%= tag %>
+
+<%= title %>
+
+```
+<%= changes %>
+
+<% unless before_deploying_tasks.nil? || before_deploying_tasks.empty? -%>
+<%= before_deploying_tasks %>
+<% end %>
+<% unless after_deploying_tasks.nil? || after_deploying_tasks.empty? -%>
+<%= after_deploying_tasks %>
+<% end %>
+<%= contributors %>
+
+```

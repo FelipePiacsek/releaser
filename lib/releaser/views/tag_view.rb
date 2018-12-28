@@ -5,7 +5,7 @@ module Releaser
   class TagView < BaseView
     def render
       template = template_string!('partials/tag.txt.erb')
-      vars = { tag: Time.now.strftime("%Y%m%d") }
+      vars = { tag: Time.now.strftime('%Y%m%d') }
       Releaser::Renderers.erb template, vars
     end
   end

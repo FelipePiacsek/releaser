@@ -1,0 +1,44 @@
+Copy the content below and paste on your GitHub release.
+
+Note that only merged Pull Requests will appear on the body.
+
+--
+
+Suggested tag: `%{time}`
+
+Suggested PR title: `Release Notes %{time}`
+
+```
+## Changes on this release:
+
+**PR 306** - **Latest unreleased PR** *powered by Felipe Piacsek*
+
+
+
+ATTENTION: There are tasks to be performed BEFORE deploying:
+
+- Send an e-mail to the manager
+
+
+
+
+ATTENTION: There are tasks to be performed AFTER deploying:
+
+You should run the migrations
+after
+the
+
+server restart.
+
+
+
+## Contributors on this release:
+
+Thanks a lot for your contributions:
+
+Author's Name | Author's Email
+------------- | --------------
+Felipe Piacsek | felipe.piacsek@gmail.com
+
+
+```

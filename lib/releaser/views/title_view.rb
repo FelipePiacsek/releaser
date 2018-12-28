@@ -5,7 +5,7 @@ module Releaser
   class TitleView < BaseView
     def render
       template = template_string!('partials/title.txt.erb')
-      vars = { title: Time.now.strftime("%Y%m%d") }
+      vars = { title: Time.now.strftime('%Y%m%d') }
 
       Releaser::Renderers.erb template, vars
     end

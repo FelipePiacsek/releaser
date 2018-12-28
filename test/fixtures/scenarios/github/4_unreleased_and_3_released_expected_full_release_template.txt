@@ -1,0 +1,31 @@
+Copy the content below and paste on your GitHub release.
+
+Note that only merged Pull Requests will appear on the body.
+
+--
+
+Suggested tag: `%{time}`
+
+Suggested PR title: `Release Notes %{time}`
+
+```
+## Changes on this release:
+
+**PR 306** - **Latest unreleased PR** *powered by Felipe Piacsek*
+**PR 305** - **Second unreleased PR** *powered by Felipe Piacsek*
+**PR 304** - **Third unreleased PR** *powered by Felipe Piacsek*
+**PR 303** - **Fourth unreleased PR.** *powered by Felipe Piacsek*
+
+
+
+
+## Contributors on this release:
+
+Thanks a lot for your contributions:
+
+Author's Name | Author's Email
+------------- | --------------
+Felipe Piacsek | felipe.piacsek@gmail.com
+
+
+```

@@ -27,8 +27,8 @@
       "site_admin": false
     },
     "expected_before_deploy_task": "\n - Send an e-mail to the manager\n",
-    "expected_after_deploy_task": "You should run the migrations\nafter\nthe\n\r\nserver restart.",
-    "body": "### Before deploying\n\n - Send an e-mail to the manager\n### After deploying\nYou should run the migrations\nafter\nthe\n\r\nserver restart.",
+    "expected_after_deploy_task": "You should run the migrations\nafter\nthe\n\nserver restart.",
+    "body": "### Before deploying\n\n - Send an e-mail to the manager\n### After deploying\nYou should run the migrations\nafter\nthe\n\nserver restart.",
     "created_at": "2018-12-20 14:34:47 UTC",
     "updated_at": "2018-12-20 14:35:17 UTC",
     "closed_at": "2018-12-20 14:35:14 UTC",

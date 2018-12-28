@@ -5,7 +5,8 @@ module Paths
   GITHUB_4_UNRELEASED_3_RELEASED = {
     pull_requests: 'scenarios/github/4_unreleased_and_3_released_prs.json'.freeze,
     tags: 'scenarios/github/4_unreleased_and_3_released_tags.json'.freeze,
-    contributors: 'scenarios/github/4_unreleased_and_3_released_expected_contributors_template.txt'.freeze
+    contributors: 'scenarios/github/4_unreleased_and_3_released_expected_contributors_template.txt'.freeze,
+    full_release: 'scenarios/github/4_unreleased_and_3_released_expected_full_release_template.txt'.freeze,
   }.freeze
 
   GITHUB_0_UNRELEASED_0_RELEASED = {
@@ -38,7 +39,8 @@ module Paths
   }
 
   GITHUB_WITH_AFTER_DEPLOYING_AND_BEFORE_DEPLOYING = {
-      pull_requests: 'scenarios/github/with_after_deploying_and_before_deploying_prs.json'.freeze
+      pull_requests: 'scenarios/github/with_after_deploying_and_before_deploying_prs.json'.freeze,
+      full_release: 'scenarios/github/with_after_deploying_and_before_deploying_expected_full_release_template.txt'.freeze,
   }
 
   GITHUB_WITHOUT_AFTER_DEPLOYING_AND_WITH_BEFORE_DEPLOYING = {
