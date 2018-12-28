@@ -1,3 +1,4 @@
+require 'thor'
 require_relative 'release_generator'
 
 module Releaser
