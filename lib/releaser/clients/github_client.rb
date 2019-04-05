@@ -1,6 +1,7 @@
 require_relative '../../../lib/releaser/models/pull_request'
 require_relative '../../../lib/releaser/models/user'
 require_relative '../../../lib/releaser/models/tag'
+require_relative './authentication_error'
 
 ##
 # This class encapsulates the communication with Github API.
@@ -11,6 +12,7 @@ class GithubClient
 
   def initialize(api_client = default_api_client)
     @client = api_client
+    check_credentials! @client
     @users_cache = {}
   end
 
@@ -49,6 +51,19 @@ class GithubClient
   def default_api_client
     require 'octokit'
     Octokit::Client.new(netrc: true)
+  end
+
+  def check_credentials!(client)
+    if client.methods.include?(:check_credentials!)
+      client.check_credentials!
+    else
+      require 'octokit'
+      begin
+        client.user
+      rescue Octokit::Unauthorized => e
+        raise AuthenticationError.new(e.message)
+      end
+    end
   end
 
   def fetch_pull_requests(repository_id, **options)

@@ -4,8 +4,8 @@ require_relative 'planner'
 class ReleaseGenerator
   ONEAPI_REPO_ID = 103_977_523
   RKPCORE_REPO_ID = 52_028_453
-  def initialize(repository = ONEAPI_REPO_ID)
-    @client = GithubClient.new
+  def initialize(client, repository: ONEAPI_REPO_ID)
+    @client = client
     @repository = repository
   end
 

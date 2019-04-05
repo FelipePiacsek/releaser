@@ -20,6 +20,8 @@ class GithubApiClientMock
     json_parse json_string
   end
 
+  def check_credentials!; end
+
   private
 
   def json_parse(json_string)
